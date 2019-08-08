@@ -10,4 +10,26 @@
 
 @implementation OAFFeaturesObject
 
+-(instancetype) init{
+    self = [super init];
+    return self;
+}
+
+-(instancetype) initWithTree: (NSDictionary *) tree{
+    self = [super init];
+    if(self != nil){
+        [self fromTree:tree];
+    }
+    return self;
+}
+
+-(NSMutableDictionary *) toTree{
+    NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
+    return tree;
+}
+
+-(void) fromTree: (NSDictionary *) tree{
+
+}
+
 @end

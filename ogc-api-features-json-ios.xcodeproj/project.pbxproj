@@ -32,6 +32,7 @@
 		04E8E4B222FB6E89001696A2 /* OAFTemporal.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E8E4B022FB6E89001696A2 /* OAFTemporal.h */; };
 		04E8E4B322FB6E89001696A2 /* OAFTemporal.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E4B122FB6E89001696A2 /* OAFTemporal.m */; };
 		04E8E4B622FB6FC9001696A2 /* OAFFeaturesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E4B522FB6FC9001696A2 /* OAFFeaturesTest.m */; };
+		04E8E4B922FC64E6001696A2 /* OAFTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8E4B822FC64E6001696A2 /* OAFTestUtils.m */; };
 		B4B9C5C590F6D09B45DC2BDB /* libPods-ogc-api-features-json-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A70C9172FC5893F17C0FB6 /* libPods-ogc-api-features-json-ios.a */; };
 		B5D94958E350F092F31540ED /* libPods-ogc-api-features-json-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 499642A447440D35F38311C9 /* libPods-ogc-api-features-json-iosTests.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		04E8E4B122FB6E89001696A2 /* OAFTemporal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAFTemporal.m; sourceTree = "<group>"; };
 		04E8E4B422FB6FC9001696A2 /* OAFFeaturesTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAFFeaturesTest.h; sourceTree = "<group>"; };
 		04E8E4B522FB6FC9001696A2 /* OAFFeaturesTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAFFeaturesTest.m; sourceTree = "<group>"; };
+		04E8E4B722FC64E5001696A2 /* OAFTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAFTestUtils.h; sourceTree = "<group>"; };
+		04E8E4B822FC64E6001696A2 /* OAFTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAFTestUtils.m; sourceTree = "<group>"; };
 		192D9E5452A64EB6A7955A5A /* Pods-ogc-api-features-json-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ogc-api-features-json-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ogc-api-features-json-ios/Pods-ogc-api-features-json-ios.release.xcconfig"; sourceTree = "<group>"; };
 		457018C9103A514A78925D9E /* Pods-ogc-api-features-json-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ogc-api-features-json-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ogc-api-features-json-ios/Pods-ogc-api-features-json-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		499642A447440D35F38311C9 /* libPods-ogc-api-features-json-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ogc-api-features-json-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +170,8 @@
 		042FC65A1B963FE500549A4B /* ogc-api-features-json-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				04E8E4B722FC64E5001696A2 /* OAFTestUtils.h */,
+				04E8E4B822FC64E6001696A2 /* OAFTestUtils.m */,
 				04E8E4B422FB6FC9001696A2 /* OAFFeaturesTest.h */,
 				04E8E4B522FB6FC9001696A2 /* OAFFeaturesTest.m */,
 				042FC65B1B963FE500549A4B /* Supporting Files */,
@@ -380,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E8E4B922FC64E6001696A2 /* OAFTestUtils.m in Sources */,
 				04E8E4B622FB6FC9001696A2 /* OAFFeaturesTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
