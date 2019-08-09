@@ -16,45 +16,56 @@
 
 -(void) testFeatureCollection{
     
-    NSString *json = @"{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\"\n      },\n      \"properties\": {}\n    }\n  ],\n  \"links\": [\n    {\n      \"href\": \"http://data.example.org/\",\n      \"rel\": \"self\",\n      \"type\": \"application/geo+json\",\n      \"hreflang\": \"en\"\n    }\n  ],\n  \"timeStamp\": \"2018-04-02T15:14:20-04:00\",\n  \"numberMatched\": 10,\n  \"numberReturned\": 5\n}";
+    NSString *json = @"{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[100,5]},\"properties\":{}}],\"links\":[{\"href\":\"http://data.example.org/\",\"rel\":\"self\",\"type\":\"application/geo+json\",\"hreflang\":\"en\"}],\"timeStamp\":\"2018-04-02T15:14:20-04:00\",\"numberMatched\":10,\"numberReturned\":5}";
     OAFFeatureCollection *featureCollection = [OAFFeaturesConverter jsonToFeatureCollection:json];
     [OAFTestUtils assertNotNil:featureCollection];
-    // TODO
-    //[OAFTestUtils assertEqualIntWithValue:10 andValue2:[[featureCollection numberMatched] intValue]];
-    //[OAFTestUtils assertEqualIntWithValue:5 andValue2:[[featureCollection numberReturned] intValue]];
-    //[OAFTestUtils assertEqualWithValue:@"2018-04-02T15:14:20-04:00" andValue2:[featureCollection timeStamp]];
+    
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)featureCollection.featureCollection.features.count];
+    SFGFeature *feature = [featureCollection.featureCollection.features objectAtIndex:0];
+    [OAFTestUtils assertNotNil:feature];
+    SFGeometry * geometry = [feature simpleGeometry];
+    [OAFTestUtils assertTrue:[geometry class] == [SFPoint class]];
+    SFPoint *point = (SFPoint *) geometry;
+    [OAFTestUtils assertEqualDoubleWithValue:100.0 andValue2:[point.x doubleValue]];
+    [OAFTestUtils assertEqualDoubleWithValue:5.0 andValue2:[point.y doubleValue]];
+    
+    [OAFTestUtils assertEqualIntWithValue:10 andValue2:[[featureCollection numberMatched] intValue]];
+    [OAFTestUtils assertEqualIntWithValue:5 andValue2:[[featureCollection numberReturned] intValue]];
+    [OAFTestUtils assertEqualWithValue:@"2018-04-02T15:14:20-04:00" andValue2:[featureCollection timeStamp]];
     NSMutableArray<OAFLink *> *links = [featureCollection links];
-    // TODO
-    //[OAFTestUtils assertNotNil:links];
-    //[OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)links.count];
-    //OAFLink *link = [links objectAtIndex:0];
-    //[OAFTestUtils assertEqualWithValue:@"http://data.example.org/" andValue2:[link href]];
-    //[OAFTestUtils assertEqualWithValue:@"http://data.example.org/" andValue2:[link rel]];
-    //[OAFTestUtils assertEqualWithValue:@"application/geo+json" andValue2:[link type]];
-    //[OAFTestUtils assertEqualWithValue:@"en" andValue2:[link hreflang]];
+    [OAFTestUtils assertNotNil:links];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)links.count];
+    OAFLink *link = [links objectAtIndex:0];
+    [OAFTestUtils assertEqualWithValue:@"http://data.example.org/" andValue2:[link href]];
+    [OAFTestUtils assertEqualWithValue:@"self" andValue2:[link rel]];
+    [OAFTestUtils assertEqualWithValue:@"application/geo+json" andValue2:[link type]];
+    [OAFTestUtils assertEqualWithValue:@"en" andValue2:[link hreflang]];
     
     [featureCollection setLinks:links];
     
-    NSString *jsonValue = [SFGFeatureConverter treeToJSON:[featureCollection toTree]];
-    [OAFTestUtils assertNotNil:jsonValue];
+    NSString *json2 = [SFGFeatureConverter treeToJSON:[featureCollection toTree]];
+    [OAFTestUtils assertNotNil:json2];
+    [OAFTestUtils assertEqualWithValue:json andValue2:json2];
     NSDictionary *tree = [OAFFeaturesConverter objectToTree:featureCollection];
     [OAFTestUtils assertNotNil:tree];
     
-    json = [OAFFeaturesConverter objectToJSON:featureCollection];
+    NSString *json3 = [OAFFeaturesConverter objectToJSON:featureCollection];
     [OAFTestUtils assertNotNil:json];
+    [OAFTestUtils assertEqualWithValue:json andValue2:json3];
     [OAFTestUtils assertNotNil:[OAFFeaturesConverter jsonToFeatureCollection:json]];
-    
 }
 
 -(void) testFeature{
     
     NSString *json = @"{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\"\n  },\n  \"properties\": {\n    \"name\": \"string\",\n    \"function\": \"residential\",\n    \"floors\": 0,\n    \"lastUpdate\": \"2019-06-15T21:55:52.722Z\"\n  }\n}";
+    NSString *jsonTest = @"{\"type\":\"Feature\",\"geometry\":null,\"properties\":{\"floors\":0,\"function\":\"residential\",\"name\":\"string\",\"lastUpdate\":\"2019-06-15T21:55:52.722Z\"}}";
     SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];
     [OAFTestUtils assertNotNil:feature];
     
-    json = [SFGFeatureConverter objectToJSON:feature];
-    [OAFTestUtils assertNotNil:json];
-    [OAFTestUtils assertNotNil:[SFGFeatureConverter jsonToFeature:json]];
+    NSString *json2 = [SFGFeatureConverter objectToJSON:feature];
+    [OAFTestUtils assertNotNil:json2];
+    [OAFTestUtils assertEqualWithValue:jsonTest andValue2:json2];
+    [OAFTestUtils assertNotNil:[SFGFeatureConverter jsonToFeature:json2]];
     
 }
 

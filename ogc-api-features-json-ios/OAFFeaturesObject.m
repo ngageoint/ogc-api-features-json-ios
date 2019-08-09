@@ -7,6 +7,7 @@
 //
 
 #import "OAFFeaturesObject.h"
+#import "SFGOrderedDictionary.h"
 
 @implementation OAFFeaturesObject
 
@@ -24,7 +25,7 @@
 }
 
 -(NSMutableDictionary *) toTree{
-    NSMutableDictionary *tree = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *tree = [[SFGOrderedDictionary alloc] init];
     return tree;
 }
 

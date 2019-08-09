@@ -11,6 +11,36 @@
 #import "OAFLink.h"
 
 /**
+ * Links property name
+ */
+extern NSString * const OAF_LINKS;
+
+/**
+ * Time Stamp property name
+ */
+extern NSString * const OAF_TIME_STAMP;
+
+/**
+ * Number Matched property name
+ */
+extern NSString * const OAF_NUMBER_MATCHED;
+
+/**
+ * Number Returned property name
+ */
+extern NSString * const OAF_NUMBER_RETURNED;
+
+/**
+ * Link relation for next
+ */
+extern NSString * const OAF_LINK_RELATION_NEXT;
+
+/**
+ * Limit default
+ */
+extern int const OAF_LIMIT_DEFAULT;
+
+/**
  * Feature Collection
  */
 @interface OAFFeatureCollection : OAFFeaturesObject
@@ -61,7 +91,7 @@
  *
  *  @param tree JSON tree
  *
- *  @return new object
+ *  @return new feature collection
  */
 -(instancetype) initWithTree: (NSDictionary *) tree;
 

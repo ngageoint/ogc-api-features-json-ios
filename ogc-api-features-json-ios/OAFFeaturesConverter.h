@@ -91,6 +91,24 @@
 +(OAFFeatureCollection *) simpleGeometriesToFeatureCollection: (NSArray<SFGeometry *> *) simpleGeometries;
 
 /**
+ * Convert the JSON string to a link
+ *
+ * @param json
+ *            JSON string
+ * @return link
+ */
++(OAFLink *) jsonToLink: (NSString *) json;
+
+/**
+ * Convert the JSON tree to a link
+ *
+ * @param tree
+ *            tree node
+ * @return link
+ */
++(OAFLink *) treeToLink: (NSDictionary *) tree;
+
+/**
  * Convert the object to a JSON value
  *
  * @param object

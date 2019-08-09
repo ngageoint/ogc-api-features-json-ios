@@ -8,6 +8,39 @@
 
 #import "OAFFeaturesObject.h"
 
+/**
+ * href property name
+ */
+extern NSString * const OAF_HREF;
+
+/**
+ * rel property name
+ */
+extern NSString * const OAF_REL;
+
+/**
+ * type property name
+ */
+extern NSString * const OAF_TYPE;
+
+/**
+ * hreflang property name
+ */
+extern NSString * const OAF_HREFLANG;
+
+/**
+ * title property name
+ */
+extern NSString * const OAF_TITLE;
+
+/**
+ * length property name
+ */
+extern NSString * const OAF_LENGTH;
+
+/**
+ * Link
+ */
 @interface OAFLink : OAFFeaturesObject
 
 /**
@@ -39,5 +72,30 @@
  *  length
  */
 @property (nonatomic, strong) NSNumber *length;
+
+/**
+ *  Initialize
+ *
+ *  @return new link
+ */
+-(instancetype) init;
+
+/**
+ *  Initialize
+ *
+ *  @param href href value
+ *
+ *  @return new link
+ */
+-(instancetype) initWithHref: (NSString *) href;
+
+/**
+ *  Initialize
+ *
+ *  @param tree JSON tree
+ *
+ *  @return new link
+ */
+-(instancetype) initWithTree: (NSDictionary *) tree;
 
 @end

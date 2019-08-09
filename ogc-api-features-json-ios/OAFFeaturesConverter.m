@@ -43,6 +43,14 @@
     return [[OAFFeatureCollection alloc] initWithFeatureCollection:[SFGFeatureConverter simpleGeometriesToFeatureCollection:simpleGeometries]];
 }
 
++(OAFLink *) jsonToLink: (NSString *) json{
+    return [self treeToLink:[SFGFeatureConverter jsonToTree:json]];
+}
+
++(OAFLink *) treeToLink: (NSDictionary *) tree{
+    return [[OAFLink alloc] initWithTree:tree];
+}
+
 +(NSString *) objectToJSON: (OAFFeaturesObject *) object{
     NSDictionary *tree = [self objectToTree:object];
     NSString *json = [SFGFeatureConverter treeToJSON:tree];
