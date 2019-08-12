@@ -11,6 +11,7 @@
 #import "SFGFeature.h"
 #import "SFGFeatureConverter.h"
 #import "OAFFeaturesConverter.h"
+#import "OAFCrs.h"
 
 @implementation OAFFeaturesTest
 
@@ -66,6 +67,20 @@
     [OAFTestUtils assertNotNil:json2];
     [OAFTestUtils assertEqualWithValue:jsonTest andValue2:json2];
     [OAFTestUtils assertNotNil:[SFGFeatureConverter jsonToFeature:json2]];
+    
+}
+
+-(void) testCrs{
+    
+    OAFCrs *crs = [[OAFCrs alloc] initWithCrs:@"http://www.opengis.net/def/crs/EPSG/0/25832"];
+    [OAFTestUtils assertEqualWithValue:@"EPSG" andValue2:crs.authority];
+    [OAFTestUtils assertEqualWithValue:@"0" andValue2:crs.version];
+    [OAFTestUtils assertEqualWithValue:@"25832" andValue2:crs.code];
+    
+    crs = [[OAFCrs alloc] initWithCrs:@"http://www.opengis.net/def/crs/OGC/1.3/CRS84"];
+    [OAFTestUtils assertEqualWithValue:@"OGC" andValue2:crs.authority];
+    [OAFTestUtils assertEqualWithValue:@"1.3" andValue2:crs.version];
+    [OAFTestUtils assertEqualWithValue:@"CRS84" andValue2:crs.code];
     
 }
 

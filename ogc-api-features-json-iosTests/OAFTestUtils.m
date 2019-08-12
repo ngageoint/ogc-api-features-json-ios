@@ -12,8 +12,6 @@
 
 @implementation OAFTestUtils
 
-static double EPSILON = 0.00001;
-
 +(void)assertNil:(id) value{
     if(value != nil){
         [NSException raise:@"Assert Nil" format:@"Value is not nil: %@", value];

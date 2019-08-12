@@ -51,6 +51,30 @@
     return [[OAFLink alloc] initWithTree:tree];
 }
 
++(OAFSpatial *) jsonToSpatial: (NSString *) json{
+    return [self treeToSpatial:[SFGFeatureConverter jsonToTree:json]];
+}
+
++(OAFSpatial *) treeToSpatial: (NSDictionary *) tree{
+    return [[OAFSpatial alloc] initWithTree:tree];
+}
+
++(OAFTemporal *) jsonToTemporal: (NSString *) json{
+    return [self treeToTemporal:[SFGFeatureConverter jsonToTree:json]];
+}
+
++(OAFTemporal *) treeToTemporal: (NSDictionary *) tree{
+    return [[OAFTemporal alloc] initWithTree:tree];
+}
+
++(OAFExtent *) jsonToExtent: (NSString *) json{
+    return [self treeToExtent:[SFGFeatureConverter jsonToTree:json]];
+}
+
++(OAFExtent *) treeToExtent: (NSDictionary *) tree{
+    return [[OAFExtent alloc] initWithTree:tree];
+}
+
 +(NSString *) objectToJSON: (OAFFeaturesObject *) object{
     NSDictionary *tree = [self objectToTree:object];
     NSString *json = [SFGFeatureConverter treeToJSON:tree];

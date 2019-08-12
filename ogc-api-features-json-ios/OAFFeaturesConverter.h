@@ -12,6 +12,9 @@
 #import "OAFCollection.h"
 #import "OAFFeatureCollection.h"
 #import "SFGeometry.h"
+#import "OAFSpatial.h"
+#import "OAFTemporal.h"
+#import "OAFExtent.h"
 
 /**
  * Features Converter
@@ -107,6 +110,60 @@
  * @return link
  */
 +(OAFLink *) treeToLink: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON string to a spatial
+ *
+ * @param json
+ *            JSON string
+ * @return spatial
+ */
++(OAFSpatial *) jsonToSpatial: (NSString *) json;
+
+/**
+ * Convert the JSON tree to a spatial
+ *
+ * @param tree
+ *            tree node
+ * @return spatial
+ */
++(OAFSpatial *) treeToSpatial: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON string to a temporal
+ *
+ * @param json
+ *            JSON string
+ * @return temporal
+ */
++(OAFTemporal *) jsonToTemporal: (NSString *) json;
+
+/**
+ * Convert the JSON tree to a temporal
+ *
+ * @param tree
+ *            tree node
+ * @return temporal
+ */
++(OAFTemporal *) treeToTemporal: (NSDictionary *) tree;
+
+/**
+ * Convert the JSON string to an extent
+ *
+ * @param json
+ *            JSON string
+ * @return extent
+ */
++(OAFExtent *) jsonToExtent: (NSString *) json;
+
+/**
+ * Convert the JSON tree to an extent
+ *
+ * @param tree
+ *            tree node
+ * @return extent
+ */
++(OAFExtent *) treeToExtent: (NSDictionary *) tree;
 
 /**
  * Convert the object to a JSON value
