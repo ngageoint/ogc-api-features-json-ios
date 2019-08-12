@@ -7,7 +7,62 @@
 //
 
 #import "OAFCollections.h"
+#import "OAFFeatureCollection.h"
+#import "OAFFeaturesConverter.h"
+
+NSString * const OAF_COLLECTIONS = @"collections";
 
 @implementation OAFCollections
+
+-(instancetype) init{
+    self = [super init];
+    return self;
+}
+
+-(instancetype) initWithTree: (NSDictionary *) tree{
+    self = [super initWithTree:tree];
+    return self;
+}
+
+-(void) addLink: (OAFLink *) link{
+    [self.links addObject:link];
+}
+
+-(void) addCollection: (OAFCollection *) collection{
+    [self.collections addObject:collection];
+}
+
+-(NSMutableDictionary *) toTree{
+    NSMutableDictionary *tree = [super toTree];
+    NSMutableArray *links = [[NSMutableArray alloc] init];
+    for(OAFLink *link in self.links){
+        [links addObject:[link toTree]];
+    }
+    [tree setObject:links forKey:OAF_LINKS];
+    NSMutableArray *collections = [[NSMutableArray alloc] init];
+    for(OAFCollection *collection in self.collections){
+        [collections addObject:[collection toTree]];
+    }
+    [tree setObject:collections forKey:OAF_COLLECTIONS];
+    return tree;
+}
+
+-(void) fromTree: (NSDictionary *) tree{
+    [super fromTree:tree];
+    self.links = [[NSMutableArray alloc] init];
+    NSArray *linksArray = [tree objectForKey:OAF_LINKS];
+    if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
+        for(NSDictionary *linkTree in linksArray){
+            [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];
+        }
+    }
+    self.collections = [[NSMutableArray alloc] init];
+    NSArray *collectionsArray = [tree objectForKey:OAF_COLLECTIONS];
+    if(![collectionsArray isEqual:[NSNull null]] && collectionsArray != nil){
+        for(NSDictionary *collectionTree in collectionsArray){
+            [self.collections addObject:[OAFFeaturesConverter treeToCollection:collectionTree]];
+        }
+    }
+}
 
 @end
