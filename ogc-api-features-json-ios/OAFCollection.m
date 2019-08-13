@@ -7,6 +7,8 @@
 //
 
 #import "OAFCollection.h"
+#import "OAFFeatureCollection.h"
+#import "OAFFeaturesConverter.h"
 
 NSString * const OAF_ID = @"id";
 NSString * const OAF_DESCRIPTION = @"description";
@@ -43,13 +45,59 @@ NSString * const OAF_ITEM_TYPE = @"itemType";
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
-    //TODO
+    [tree setObject:self.id != nil ? self.id : [NSNull null] forKey:OAF_ID];
+    if(self.title != nil){
+        [tree setObject:self.title forKey:OAF_TITLE];
+    }
+    if(self.theDescription != nil){
+        [tree setObject:self.theDescription forKey:OAF_DESCRIPTION];
+    }
+    NSMutableArray *links = [[NSMutableArray alloc] init];
+    for(OAFLink *link in self.links){
+        [links addObject:[link toTree]];
+    }
+    [tree setObject:links forKey:OAF_LINKS];
+    if(self.extent != nil){
+        [tree setObject:[self.extent toTree] forKey:OAF_EXTENT];
+    }
+    if(self.crs != nil){
+        [tree setObject:self.crs forKey:OAF_CRS];
+    }
+    if(self.itemType != nil){
+        [tree setObject:self.theDescription forKey:OAF_ITEM_TYPE];
+    }
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
-    //TODO
+    self.id = [tree objectForKey:OAF_ID];
+    if([self.id isEqual:[NSNull null]]){
+        self.id = nil;
+    }
+    self.title = [tree objectForKey:OAF_TITLE];
+    self.theDescription = [tree objectForKey:OAF_DESCRIPTION];
+    NSArray *linksArray = [tree objectForKey:OAF_LINKS];
+    if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
+        self.links = [[NSMutableArray alloc] init];
+        for(NSDictionary *linkTree in linksArray){
+            [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];
+        }
+    }
+    NSDictionary *extentTree = [tree objectForKey:OAF_EXTENT];
+    OAFExtent *extent = nil;
+    if(![extentTree isEqual:[NSNull null]] && extentTree != nil){
+        extent = [OAFFeaturesConverter treeToExtent:extentTree];
+    }
+    [self setExtent:extent];
+    NSArray *crs = [tree objectForKey:OAF_CRS];
+    if(![crs isEqual:[NSNull null]] && crs != nil){
+        self.crs = [[NSMutableArray alloc] init];
+        for(NSString *value in crs){
+            [self.crs addObject:[NSMutableString stringWithString:value]];
+        }
+    }
+    self.itemType = [tree objectForKey:OAF_ITEM_TYPE];
 }
 
 @end
