@@ -175,21 +175,27 @@
     content = [content stringByAppendingString:@"}"];
     
     OAFCollections *collections = [OAFFeaturesConverter jsonToCollections:content];
-    [OAFTestUtils assertNotNil:collections];
-    [self validateLinks:collections.links withCount:6];
-    [self validateCollections:collections.collections withCount:3];
+    [self validateCollections:collections];
     
     NSString *json = [OAFFeaturesConverter objectToJSON:collections];
     [OAFTestUtils assertNotNil:json];
     
     OAFCollections *collections2 = [OAFFeaturesConverter jsonToCollections:json];
-    [OAFTestUtils assertNotNil:collections2];
-    [self validateLinks:collections2.links withCount:6];
-    [self validateCollections:collections2.collections withCount:3];
+    [self validateCollections:collections2];
     
 }
 
--(void) validateCollections: (NSMutableArray<OAFCollection *> *) collections withCount: (int) count{
+-(void) validateCollections: (OAFCollections *) collections{
+    [OAFTestUtils assertNotNil:collections];
+    [self validateLinks:collections.links withCount:6];
+    [self validateCollectionArray:collections.collections withCount:3];
+    [OAFTestUtils assertNotNil:collections.foreignMembers];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)collections.foreignMembers.count];
+    NSArray *crs = (NSArray *)[collections.foreignMembers objectForKey:OAF_CRS];
+    [OAFTestUtils assertEqualIntWithValue:20 andValue2:(int)crs.count];
+}
+
+-(void) validateCollectionArray: (NSMutableArray<OAFCollection *> *) collections withCount: (int) count{
     [OAFTestUtils assertEqualIntWithValue:count andValue2:(int)collections.count];
     for(int i = 0; i < count; i++){
         [self validateCollection:[collections objectAtIndex:i]];

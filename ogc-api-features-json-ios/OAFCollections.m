@@ -12,7 +12,15 @@
 
 NSString * const OAF_COLLECTIONS = @"collections";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFCollections
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_LINKS, OAF_COLLECTIONS, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -63,6 +71,10 @@ NSString * const OAF_COLLECTIONS = @"collections";
             [self.collections addObject:[OAFFeaturesConverter treeToCollection:collectionTree]];
         }
     }
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

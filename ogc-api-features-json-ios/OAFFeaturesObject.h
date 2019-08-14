@@ -14,6 +14,11 @@
 @interface OAFFeaturesObject : NSObject
 
 /**
+ *  Foreign members
+ */
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSObject *> *foreignMembers;
+
+/**
  *  Initialize
  *
  *  @return new object
@@ -42,5 +47,12 @@
  * @param tree JSON tree
  */
 -(void) fromTree: (NSDictionary *) tree;
+
+/**
+ * Get the JSON keys
+ *
+ * @return JSON keys
+ */
+-(NSOrderedSet<NSString *> *) keys;
 
 @end

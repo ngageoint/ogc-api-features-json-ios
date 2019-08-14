@@ -15,7 +15,15 @@ NSString * const OAF_HREFLANG = @"hreflang";
 NSString * const OAF_TITLE = @"title";
 NSString * const OAF_LENGTH = @"length";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFLink
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_HREF, OAF_REL, OAF_TYPE, OAF_HREFLANG, OAF_TITLE, OAF_LENGTH, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -66,6 +74,10 @@ NSString * const OAF_LENGTH = @"length";
     self.hreflang = [tree objectForKey:OAF_HREFLANG];
     self.title = [tree objectForKey:OAF_TITLE];
     self.length = [tree objectForKey:OAF_LENGTH];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

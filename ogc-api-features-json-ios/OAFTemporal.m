@@ -11,7 +11,15 @@
 NSString * const OAF_INTERVAL = @"interval";
 NSString * const OAF_TRS = @"trs";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFTemporal
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_INTERVAL, OAF_TRS, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -44,6 +52,10 @@ NSString * const OAF_TRS = @"trs";
         }
     }
     self.trs = [tree objectForKey:OAF_TRS];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

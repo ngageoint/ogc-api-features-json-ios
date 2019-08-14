@@ -17,7 +17,15 @@ NSString * const OAF_NUMBER_RETURNED = @"numberReturned";
 NSString * const OAF_LINK_RELATION_NEXT = @"next";
 int const OAF_LIMIT_DEFAULT = 10;
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFFeatureCollection
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_FEATURES, OAF_LINKS, OAF_TIME_STAMP, OAF_NUMBER_MATCHED, OAF_NUMBER_RETURNED, nil];
+    }
+}
 
 -(instancetype) init{
     return [self initWithFeatureCollection:[[SFGFeatureCollection alloc] init]];
@@ -77,16 +85,27 @@ int const OAF_LIMIT_DEFAULT = 10;
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
     self.featureCollection = [SFGFeatureConverter treeToFeatureCollection:tree];
-    NSArray *linksArray = [tree objectForKey:OAF_LINKS];
+    
+    NSMutableDictionary<NSString *, NSObject *> *foreignMembers = self.featureCollection.foreignMembers;
+    NSArray *linksArray = (NSArray *)[foreignMembers objectForKey:OAF_LINKS];
     self.links = [[NSMutableArray alloc] init];
     if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
         for(NSDictionary *linkTree in linksArray){
             [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];
         }
     }
-    self.timeStamp = [tree objectForKey:OAF_TIME_STAMP];
-    self.numberMatched = [tree objectForKey:OAF_NUMBER_MATCHED];
-    self.numberReturned = [tree objectForKey:OAF_NUMBER_RETURNED];
+    self.timeStamp = (NSString *)[foreignMembers objectForKey:OAF_TIME_STAMP];
+    self.numberMatched = (NSNumber *)[foreignMembers objectForKey:OAF_NUMBER_MATCHED];
+    self.numberReturned = (NSNumber *)[foreignMembers objectForKey:OAF_NUMBER_RETURNED];
+    
+    [foreignMembers removeObjectForKey:OAF_LINKS];
+    [foreignMembers removeObjectForKey:OAF_TIME_STAMP];
+    [foreignMembers removeObjectForKey:OAF_NUMBER_MATCHED];
+    [foreignMembers removeObjectForKey:OAF_NUMBER_RETURNED];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

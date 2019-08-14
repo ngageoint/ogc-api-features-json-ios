@@ -12,7 +12,15 @@
 NSString * const OAF_SPATIAL = @"spatial";
 NSString * const OAF_TEMPORAL = @"temporal";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFExtent
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_SPATIAL, OAF_TEMPORAL, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -49,6 +57,10 @@ NSString * const OAF_TEMPORAL = @"temporal";
         temporal = [OAFFeaturesConverter treeToTemporal:temporalTree];
     }
     [self setTemporal:temporal];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

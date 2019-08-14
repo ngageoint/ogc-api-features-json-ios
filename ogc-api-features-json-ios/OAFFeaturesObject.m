@@ -13,6 +13,9 @@
 
 -(instancetype) init{
     self = [super init];
+    if(self != nil){
+        self.foreignMembers = [[NSMutableDictionary alloc] init];
+    }
     return self;
 }
 
@@ -26,11 +29,27 @@
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [[SFGOrderedDictionary alloc] init];
+    if(self.foreignMembers != nil && self.foreignMembers.count > 0){
+        [tree addEntriesFromDictionary:self.foreignMembers];
+    }
     return tree;
 }
 
 -(void) fromTree: (NSDictionary *) tree{
+    self.foreignMembers = [[NSMutableDictionary alloc] init];
+    NSOrderedSet<NSString *> *keys = [self keys];
+    if(keys != nil && keys.count > 0){
+        for(NSString *key in [tree allKeys]){
+            if(![keys containsObject:key]){
+                [self.foreignMembers setObject:[tree objectForKey:key] forKey:key];
+            }
+        }
+    }
+}
 
+-(NSOrderedSet<NSString *> *) keys{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 @end

@@ -11,7 +11,15 @@
 NSString * const OAF_BBOX = @"bbox";
 NSString * const OAF_CRS = @"crs";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFSpatial
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_BBOX, OAF_CRS, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -44,6 +52,10 @@ NSString * const OAF_CRS = @"crs";
         }
     }
     self.crs = [tree objectForKey:OAF_CRS];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end

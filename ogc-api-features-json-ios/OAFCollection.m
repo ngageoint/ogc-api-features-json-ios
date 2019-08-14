@@ -15,7 +15,15 @@ NSString * const OAF_DESCRIPTION = @"description";
 NSString * const OAF_EXTENT = @"extent";
 NSString * const OAF_ITEM_TYPE = @"itemType";
 
+static NSOrderedSet *keys = nil;
+
 @implementation OAFCollection
+
++ (void)initialize {
+    if(keys == nil){
+        keys = [[NSOrderedSet alloc] initWithObjects:OAF_ID, OAF_TITLE, OAF_DESCRIPTION, OAF_LINKS, OAF_EXTENT, OAF_CRS, OAF_ITEM_TYPE, nil];
+    }
+}
 
 -(instancetype) init{
     self = [super init];
@@ -98,6 +106,10 @@ NSString * const OAF_ITEM_TYPE = @"itemType";
         }
     }
     self.itemType = [tree objectForKey:OAF_ITEM_TYPE];
+}
+
+-(NSOrderedSet<NSString *> *) keys{
+    return keys;
 }
 
 @end
