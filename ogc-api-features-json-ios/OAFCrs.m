@@ -47,7 +47,7 @@ static NSRegularExpression *crsExpression = nil;
     
     if(crsExpression == nil){
         NSError  *error = nil;
-        crsExpression = [NSRegularExpression regularExpressionWithPattern:OAF_CRS_PATTERN options:0 error:nil];
+        crsExpression = [NSRegularExpression regularExpressionWithPattern:OAF_CRS_PATTERN options:0 error:&error];
         if(error){
             [NSException raise:@"CRS Regular Expression" format:@"Failed to create CRS regular expression with error: %@", error];
         }
