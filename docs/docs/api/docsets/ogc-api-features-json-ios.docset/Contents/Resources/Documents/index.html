@@ -433,8 +433,6 @@
           <section class="section">
             
             <h1 id='ogc-api-features-json-ios' class='heading'>OGC API Features JSON iOS</h1>
-
-<p>Placeholder for future OGC API Features JSON iOS implementation, similar to the Java equivalent <a href="https://github.com/ngageoint/ogc-api-features-json-java">ogc-api-features-json-java</a>.</p>
 <h4 id='ogc-api-features-json-lib' class='heading'>OGC API Features JSON Lib</h4>
 
 <p>The OGC API Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has <q>unlimited rights</q> and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
@@ -443,11 +441,71 @@
 <p>If you&rsquo;d like to contribute to this project, please make a pull request. We&rsquo;ll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.</p>
 
 <p>Software source code previously released under an open source license and then modified by NGA staff is considered a <q>joint work</q> (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
+<h3 id='about' class='heading'>About</h3>
+
+<p><a href="http://ngageoint.github.io/ogc-api-features-json-ios/">OGC API Features JSON</a> is an iOS Objective-C library for writing and reading <a href="https://github.com/opengeospatial/WFS_FES">OGC API - Features</a> to and from JSON.</p>
+<h3 id='usage' class='heading'>Usage</h3>
+
+<p>View the latest <a href="http://ngageoint.github.io/ogc-api-features-json-ios/docs/api/">Appledoc</a></p>
+<h4 id='read' class='heading'>Read</h4>
+<pre class="highlight objective_c"><code>
+<span class="n">OAFCollections</span> <span class="o">*</span><span class="n">collections</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">jsonToCollections</span><span class="p">:</span><span class="n">collectionsContent</span><span class="p">];</span>
+<span class="n">OAFCollection</span> <span class="o">*</span><span class="n">collection</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">jsonToCollection</span><span class="p">:</span><span class="n">collectionContent</span><span class="p">];</span>
+<span class="n">OAFFeatureCollection</span> <span class="o">*</span><span class="n">featureCollection</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">jsonToFeatureCollection</span><span class="p">:</span><span class="n">featureCollectionContent</span><span class="p">];</span>
+
+</code></pre>
+<h4 id='write' class='heading'>Write</h4>
+<pre class="highlight objective_c"><code>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">collectionsContent</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">collections</span><span class="p">];</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">collectionContent</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">collection</span><span class="p">];</span>
+<span class="n">NSString</span> <span class="o">*</span><span class="n">featureCollectionContent</span> <span class="o">=</span> <span class="p">[</span><span class="n">OAFFeaturesConverter</span> <span class="nf">objectToJSON</span><span class="p">:</span><span class="n">featureCollection</span><span class="p">];</span>
+
+</code></pre>
+<h3 id='build' class='heading'>Build</h3>
+
+<p>Build this repository using Xcode and/or CocoaPods:</p>
+<pre class="highlight plaintext"><code>pod repo update
+pod install
+</code></pre>
+
+<p>Open ogc-api-features-json-ios.xcworkspace in Xcode or build from command line:</p>
+<pre class="highlight plaintext"><code>xcodebuild -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios build
+</code></pre>
+
+<p>Run tests from Xcode or from command line:</p>
+<pre class="highlight plaintext"><code>xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 8'
+</code></pre>
+<h3 id='include-library' class='heading'>Include Library</h3>
+
+<p>Include this repository by specifying it in a Podfile using a supported option.</p>
+
+<p>Pull from <a href="https://cocoapods.org/pods/ogc-api-features-json-ios">CocoaPods</a>:</p>
+<pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', '~&gt; 1.0.0'
+</code></pre>
+
+<p>Pull from GitHub:</p>
+<pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :branch =&gt; 'master'
+pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag =&gt; '1.0.0'
+</code></pre>
+
+<p>Include as local project:</p>
+<pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', :path =&gt; '../ogc-api-features-json-ios'
+</code></pre>
+<h3 id='swift' class='heading'>Swift</h3>
+
+<p>To use from Swift, import the ogc-api-features-json-ios bridging header from the Swift project&rsquo;s bridging header</p>
+<pre class="highlight plaintext"><code>#import "ogc-api-features-json-ios-Bridging-Header.h"
+</code></pre>
+<h3 id='remote-dependencies' class='heading'>Remote Dependencies</h3>
+
+<ul>
+<li><a href="https://github.com/ngageoint/simple-features-geojson-ios">Simple Features GeoJSON</a> (The MIT License (MIT)) - Simple Features GeoJSON Lib</li>
+</ul>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-08-15)</p>
+          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
