@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-geojson-ios', '~> 1.0.0'
+  s.dependency 'sf-geojson-ios', '~> 1.0.1'
 end
