@@ -8,13 +8,21 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a title="ogc-api-features-json-ios  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">ogc-api-features-json-ios Docs</a> (90% documented)</p>
+        <p><a href="index.html">ogc-api-features-json-ios 2.0.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/ogc-api-features-json-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -435,12 +443,12 @@
             <h1 id='ogc-api-features-json-ios' class='heading'>OGC API Features JSON iOS</h1>
 <h4 id='ogc-api-features-json-lib' class='heading'>OGC API Features JSON Lib</h4>
 
-<p>The OGC API Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has <q>unlimited rights</q> and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
+<p>The OGC API Libraries were developed at the <a href="http://www.nga.mil/">National Geospatial-Intelligence Agency (NGA)</a> in collaboration with <a href="http://www.bit-sys.com/">BIT Systems</a>. The government has &ldquo;unlimited rights&rdquo; and is releasing this software to increase the impact of government investments by providing developers with the opportunity to take things in new directions. The software use, modification, and distribution rights are stipulated within the <a href="http://choosealicense.com/licenses/mit/">MIT license</a>.</p>
 <h3 id='pull-requests' class='heading'>Pull Requests</h3>
 
 <p>If you&rsquo;d like to contribute to this project, please make a pull request. We&rsquo;ll review the pull request and discuss the changes. All pull request contributions to this project will be released under the MIT license.</p>
 
-<p>Software source code previously released under an open source license and then modified by NGA staff is considered a <q>joint work</q> (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
+<p>Software source code previously released under an open source license and then modified by NGA staff is considered a &ldquo;joint work&rdquo; (see 17 USC § 101); it is partially copyrighted, partially public domain, and as a whole is protected by the copyrights of the non-government authors and must be released according to the terms of the original open source license.</p>
 <h3 id='about' class='heading'>About</h3>
 
 <p><a href="http://ngageoint.github.io/ogc-api-features-json-ios/">OGC API Features JSON</a> is an iOS Objective-C library for writing and reading <a href="https://github.com/opengeospatial/WFS_FES">OGC API - Features</a> to and from JSON.</p>
@@ -463,6 +471,8 @@
 </code></pre>
 <h3 id='build' class='heading'>Build</h3>
 
+<p><a href="https://github.com/ngageoint/ogc-api-features-json-ios/actions?query=workflow%3A%22Build+%26+Test%22"><img src="https://github.com/ngageoint/ogc-api-features-json-ios/workflows/Build%20&%20Test/badge.svg" alt="Build &amp; Test"></a></p>
+
 <p>Build this repository using Xcode and/or CocoaPods:</p>
 <pre class="highlight plaintext"><code>pod repo update
 pod install
@@ -480,12 +490,12 @@ pod install
 <p>Include this repository by specifying it in a Podfile using a supported option.</p>
 
 <p>Pull from <a href="https://cocoapods.org/pods/ogc-api-features-json-ios">CocoaPods</a>:</p>
-<pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', '~&gt; 1.0.0'
+<pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', '~&gt; 2.0.0'
 </code></pre>
 
 <p>Pull from GitHub:</p>
 <pre class="highlight plaintext"><code>pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :branch =&gt; 'master'
-pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag =&gt; '1.0.0'
+pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag =&gt; '2.0.0'
 </code></pre>
 
 <p>Include as local project:</p>
@@ -505,8 +515,8 @@ pod 'ogc-api-features-json-ios', :git =&gt; 'https://github.com/ngageoint/ogc-ap
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

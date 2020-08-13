@@ -8,14 +8,22 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Class/SFMultiSurface" class="dashAnchor"></a>
     <a title="SFMultiSurface Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">ogc-api-features-json-ios Docs</a> (90% documented)</p>
+        <p><a href="../index.html">ogc-api-features-json-ios 2.0.0 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/ngageoint/ogc-api-features-json-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -435,13 +443,22 @@
             <h1>SFMultiSurface</h1>
               <div class="declaration">
                 <div class="language">
+                  <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">SFMultiSurface</span> <span class="p">:</span> <span class="nc"><a href="../Classes/SFGeometryCollection.html">SFGeometryCollection</a></span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">SFMultiSurface</span> <span class="p">:</span> <span class="kt"><a href="../Classes/SFGeometryCollection.html">SFGeometryCollection</a></span></code></pre>
 
                 </div>
               </div>
             <p>A restricted form of GeometryCollection where each Geometry in the collection
 must be of type Surface.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L16-L74">Show on GitHub</a>
+              </div>
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -451,7 +468,7 @@ must be of type Surface.</p>
                     <code>
                     <a name="/c:objc(cs)SFMultiSurface(im)initWithType:andHasZ:andHasM:"></a>
                     <a name="//apple_ref/objc/Method/-initWithType:andHasZ:andHasM:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)initWithType:andHasZ:andHasM:">-initWithType:andHasZ:andHasM:</a>
+                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)initWithType:andHasZ:andHasM:">-initWithType:<wbr>andHasZ:<wbr>andHasM:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -525,7 +542,7 @@ must be of type Surface.</p>
                         <p>new multi surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L27">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L27">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -564,7 +581,7 @@ must be of type Surface.</p>
                         <p>surfaces</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L34">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L34">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -574,7 +591,7 @@ must be of type Surface.</p>
                     <code>
                     <a name="/c:objc(cs)SFMultiSurface(im)setSurfaces:"></a>
                     <a name="//apple_ref/objc/Method/-setSurfaces:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)setSurfaces:">-setSurfaces:</a>
+                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)setSurfaces:">-setSurfaces:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -618,7 +635,7 @@ must be of type Surface.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L41">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -628,7 +645,7 @@ must be of type Surface.</p>
                     <code>
                     <a name="/c:objc(cs)SFMultiSurface(im)addSurface:"></a>
                     <a name="//apple_ref/objc/Method/-addSurface:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)addSurface:">-addSurface:</a>
+                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)addSurface:">-addSurface:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -672,7 +689,7 @@ must be of type Surface.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L48">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L48">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -682,7 +699,7 @@ must be of type Surface.</p>
                     <code>
                     <a name="/c:objc(cs)SFMultiSurface(im)addSurfaces:"></a>
                     <a name="//apple_ref/objc/Method/-addSurfaces:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)addSurfaces:">-addSurfaces:</a>
+                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)addSurfaces:">-addSurfaces:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -726,7 +743,7 @@ must be of type Surface.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L56">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L56">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -765,7 +782,7 @@ must be of type Surface.</p>
                         <p>surface count</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L63">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L63">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -775,7 +792,7 @@ must be of type Surface.</p>
                     <code>
                     <a name="/c:objc(cs)SFMultiSurface(im)surfaceAtIndex:"></a>
                     <a name="//apple_ref/objc/Method/-surfaceAtIndex:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)surfaceAtIndex:">-surfaceAtIndex:</a>
+                    <a class="token" href="#/c:objc(cs)SFMultiSurface(im)surfaceAtIndex:">-surfaceAtIndex:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -823,7 +840,7 @@ must be of type Surface.</p>
                         <p>surface</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/1.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L72">Show on GitHub</a>
+                        <a href="https://github.com/ngageoint/ogc-api-features-json-ios/tree/2.0.0/Pods/sf-ios/sf-ios/SFMultiSurface.h#L72">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -833,8 +850,8 @@ must be of type Surface.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2019-10-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://www.nga.mil" target="_blank" rel="external">NGA</a>. All rights reserved. (Last updated: 2020-08-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
