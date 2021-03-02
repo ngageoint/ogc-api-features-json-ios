@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ogc-api-features-json-ios'
-  s.version          = '2.0.1'
+  s.version          = '3.0.0'
   s.license          =  {:type => 'MIT', :file => 'LICENSE' }
   s.summary          = 'iOS SDK for OGC API Features JSON'
   s.homepage         = 'https://github.com/ngageoint/ogc-api-features-json-ios'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation'
 
-  s.dependency 'sf-geojson-ios', '~> 2.0.1'
+  s.dependency 'sf-geojson-ios', '~> 3.0.0'
 end

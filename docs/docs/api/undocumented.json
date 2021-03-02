@@ -435,6 +435,34 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h",
+      "line": 16,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h",
+      "line": 17,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE_AND_INFINITE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h",
+      "line": 18,
+      "symbol": "SFFiniteFilterType.SF_FF_FINITE_AND_NAN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/sf-ios/sf-ios/util/filter/SFFiniteFilterTypes.h",
+      "line": 21,
+      "symbol": "SFFiniteFilterTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/sf-ios/sf-ios/util/sweep/SFEventTypes.h",
       "line": 15,
       "symbol": "SFEventType.SF_ET_LEFT",

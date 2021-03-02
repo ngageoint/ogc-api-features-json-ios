@@ -52,7 +52,7 @@ Open ogc-api-features-json-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 8'
+    xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 12'
 
 ### Include Library ###
 
@@ -60,12 +60,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/ogc-api-features-json-ios):
 
-    pod 'ogc-api-features-json-ios', '~> 2.0.0'
+    pod 'ogc-api-features-json-ios', '~> 3.0.0'
 
 Pull from GitHub:
 
     pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :branch => 'master'
-    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag => '2.0.0'
+    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag => '3.0.0'
 
 Include as local project:
 

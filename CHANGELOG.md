@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 2.0.1 (TBD)
+## [3.0.0](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/3.0.0) (03-02-2021)
 
-* sf-geojson-ios 2.0.1
+* sf-geojson-ios 3.0.0
 * iOS platform and deployment target 12.0
 
 ## [2.0.0](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/2.0.0) (08-14-2020)
