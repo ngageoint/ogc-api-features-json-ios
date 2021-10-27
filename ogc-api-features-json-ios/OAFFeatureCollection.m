@@ -23,7 +23,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_TYPE, SFG_BBOX, SFG_FEATURES, OAF_LINKS, OAF_TIME_STAMP, OAF_NUMBER_MATCHED, OAF_NUMBER_RETURNED, nil];
+        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, OAF_LINKS, OAF_TIME_STAMP, OAF_NUMBER_MATCHED, OAF_NUMBER_RETURNED, nil];
     }
 }
 
