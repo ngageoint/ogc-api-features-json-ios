@@ -328,7 +328,7 @@
 -(void) testFeature{
     
     NSString *json = @"{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\"\n  },\n  \"properties\": {\n    \"name\": \"string\",\n    \"function\": \"residential\",\n    \"floors\": 0,\n    \"lastUpdate\": \"2019-06-15T21:55:52.722Z\"\n  }\n}";
-    NSString *jsonTest = @"{\"type\":\"Feature\",\"geometry\":null,\"properties\":{\"floors\":0,\"function\":\"residential\",\"name\":\"string\",\"lastUpdate\":\"2019-06-15T21:55:52.722Z\"}}";
+    NSString *jsonTest = @"{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[]},\"properties\":{\"floors\":0,\"function\":\"residential\",\"name\":\"string\",\"lastUpdate\":\"2019-06-15T21:55:52.722Z\"}}";
     SFGFeature *feature = [SFGFeatureConverter jsonToFeature:json];
     [OAFTestUtils assertNotNil:feature];
     
