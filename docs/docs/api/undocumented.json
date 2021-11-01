@@ -1,6 +1,62 @@
 {
   "warnings": [
     {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 16,
+      "symbol": "SFGGeometryType.SFG_GEOMETRY",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 17,
+      "symbol": "SFGGeometryType.SFG_POINT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 18,
+      "symbol": "SFGGeometryType.SFG_LINESTRING",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 19,
+      "symbol": "SFGGeometryType.SFG_POLYGON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 20,
+      "symbol": "SFGGeometryType.SFG_MULTIPOINT",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 21,
+      "symbol": "SFGGeometryType.SFG_MULTILINESTRING",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 22,
+      "symbol": "SFGGeometryType.SFG_MULTIPOLYGON",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGGeometryTypes.h",
+      "line": 23,
+      "symbol": "SFGGeometryType.SFG_GEOMETRYCOLLECTION",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/osbornb/git/ogc-api-features-json-ios/Pods/Headers/Public/sf-geojson-ios/SFGOrderedDictionary.h",
       "line": 28,
       "symbol": "SFGOrderedDictionary",
