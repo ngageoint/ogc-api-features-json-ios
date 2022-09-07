@@ -17,7 +17,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_INTERVAL, OAF_TRS, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_INTERVAL, OAF_TRS, nil];
     }
 }
 
@@ -46,7 +46,7 @@ static NSOrderedSet *keys = nil;
     [super fromTree:tree];
     NSArray *interval = [tree objectForKey:OAF_INTERVAL];
     if(![interval isEqual:[NSNull null]] && interval != nil){
-        self.interval = [[NSMutableArray alloc] init];
+        self.interval = [NSMutableArray array];
         for(NSString *value in interval){
             [self.interval addObject:[NSMutableString stringWithString:value]];
         }

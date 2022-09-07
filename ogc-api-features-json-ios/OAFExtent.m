@@ -18,7 +18,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_SPATIAL, OAF_TEMPORAL, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_SPATIAL, OAF_TEMPORAL, nil];
     }
 }
 

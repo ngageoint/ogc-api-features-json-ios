@@ -60,12 +60,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/ogc-api-features-json-ios):
 
-    pod 'ogc-api-features-json-ios', '~> 4.0.1'
+    pod 'ogc-api-features-json-ios', '~> 4.1.0'
 
 Pull from GitHub:
 
     pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :branch => 'master'
-    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag => '4.0.1'
+    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag => '4.1.0'
 
 Include as local project:
 

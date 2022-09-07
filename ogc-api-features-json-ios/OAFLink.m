@@ -21,7 +21,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_HREF, OAF_REL, OAF_TYPE, OAF_HREFLANG, OAF_TITLE, OAF_LENGTH, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_HREF, OAF_REL, OAF_TYPE, OAF_HREFLANG, OAF_TITLE, OAF_LENGTH, nil];
     }
 }
 

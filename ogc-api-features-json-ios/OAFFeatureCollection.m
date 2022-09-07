@@ -23,12 +23,12 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, OAF_LINKS, OAF_TIME_STAMP, OAF_NUMBER_MATCHED, OAF_NUMBER_RETURNED, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:SFG_MEMBER_TYPE, SFG_MEMBER_BBOX, SFG_MEMBER_FEATURES, OAF_LINKS, OAF_TIME_STAMP, OAF_NUMBER_MATCHED, OAF_NUMBER_RETURNED, nil];
     }
 }
 
 -(instancetype) init{
-    return [self initWithFeatureCollection:[[SFGFeatureCollection alloc] init]];
+    return [self initWithFeatureCollection:[SFGFeatureCollection featureCollection]];
 }
 
 -(instancetype) initWithFeatureCollection: (SFGFeatureCollection *) featureCollection{
@@ -45,14 +45,14 @@ static NSOrderedSet *keys = nil;
 }
 
 -(NSDictionary<NSString *, NSMutableArray<OAFLink *> *> *) relationLinks{
-    NSDictionary<NSString *, NSMutableArray<OAFLink *> *> *links = [[NSMutableDictionary alloc] init];
+    NSDictionary<NSString *, NSMutableArray<OAFLink *> *> *links = [NSMutableDictionary dictionary];
     NSMutableArray<OAFLink *> *allLinks = [self links];
     if(allLinks != nil){
         for (OAFLink *link in allLinks) {
             NSString *relation = [link rel];
             NSMutableArray<OAFLink *> *relationLinks = [links objectForKey:relation];
             if(relationLinks == nil){
-                relationLinks = [[NSMutableArray alloc] init];
+                relationLinks = [NSMutableArray array];
                 [links setValue:relationLinks forKey:relation];
             }
             [relationLinks addObject:link];
@@ -64,7 +64,7 @@ static NSOrderedSet *keys = nil;
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [SFGFeatureConverter objectToMutableTree:self.featureCollection];
     if(self.links != nil){
-        NSMutableArray *links = [[NSMutableArray alloc] init];
+        NSMutableArray *links = [NSMutableArray array];
         for(OAFLink *link in self.links){
             [links addObject:[link toTree]];
         }
@@ -88,7 +88,7 @@ static NSOrderedSet *keys = nil;
     
     NSMutableDictionary<NSString *, NSObject *> *foreignMembers = self.featureCollection.foreignMembers;
     NSArray *linksArray = (NSArray *)[foreignMembers objectForKey:OAF_LINKS];
-    self.links = [[NSMutableArray alloc] init];
+    self.links = [NSMutableArray array];
     if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
         for(NSDictionary *linkTree in linksArray){
             [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];

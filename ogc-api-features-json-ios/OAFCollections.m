@@ -18,7 +18,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_LINKS, OAF_COLLECTIONS, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_LINKS, OAF_COLLECTIONS, nil];
     }
 }
 
@@ -42,12 +42,12 @@ static NSOrderedSet *keys = nil;
 
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
-    NSMutableArray *links = [[NSMutableArray alloc] init];
+    NSMutableArray *links = [NSMutableArray array];
     for(OAFLink *link in self.links){
         [links addObject:[link toTree]];
     }
     [tree setObject:links forKey:OAF_LINKS];
-    NSMutableArray *collections = [[NSMutableArray alloc] init];
+    NSMutableArray *collections = [NSMutableArray array];
     for(OAFCollection *collection in self.collections){
         [collections addObject:[collection toTree]];
     }
@@ -57,14 +57,14 @@ static NSOrderedSet *keys = nil;
 
 -(void) fromTree: (NSDictionary *) tree{
     [super fromTree:tree];
-    self.links = [[NSMutableArray alloc] init];
+    self.links = [NSMutableArray array];
     NSArray *linksArray = [tree objectForKey:OAF_LINKS];
     if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
         for(NSDictionary *linkTree in linksArray){
             [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];
         }
     }
-    self.collections = [[NSMutableArray alloc] init];
+    self.collections = [NSMutableArray array];
     NSArray *collectionsArray = [tree objectForKey:OAF_COLLECTIONS];
     if(![collectionsArray isEqual:[NSNull null]] && collectionsArray != nil){
         for(NSDictionary *collectionTree in collectionsArray){

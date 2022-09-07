@@ -14,7 +14,7 @@
 -(instancetype) init{
     self = [super init];
     if(self != nil){
-        self.foreignMembers = [[NSMutableDictionary alloc] init];
+        self.foreignMembers = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -36,7 +36,7 @@
 }
 
 -(void) fromTree: (NSDictionary *) tree{
-    self.foreignMembers = [[NSMutableDictionary alloc] init];
+    self.foreignMembers = [NSMutableDictionary dictionary];
     NSOrderedSet<NSString *> *keys = [self keys];
     if(keys != nil && keys.count > 0){
         for(NSString *key in [tree allKeys]){

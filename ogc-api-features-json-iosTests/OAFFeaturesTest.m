@@ -293,7 +293,7 @@
     [OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)featureCollection.featureCollection.features.count];
     SFGFeature *feature = [featureCollection.featureCollection.features objectAtIndex:0];
     [OAFTestUtils assertNotNil:feature];
-    SFGeometry * geometry = [feature simpleGeometry];
+    SFGeometry *geometry = [feature simpleGeometry];
     [OAFTestUtils assertTrue:[geometry class] == [SFPoint class]];
     SFPoint *point = (SFPoint *) geometry;
     [OAFTestUtils assertEqualDoubleWithValue:100.0 andValue2:[point.x doubleValue]];

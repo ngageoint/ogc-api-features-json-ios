@@ -53,7 +53,7 @@ static NSRegularExpression *crsExpression = nil;
         }
     }
     
-    NSArray * matches = [crsExpression matchesInString:crs options:0 range:NSMakeRange(0, [crs length])];
+    NSArray *matches = [crsExpression matchesInString:crs options:0 range:NSMakeRange(0, [crs length])];
     if([matches count] > 0){
         NSTextCheckingResult* match = (NSTextCheckingResult*) [matches objectAtIndex:0];
         self.authority = [crs substringWithRange:[match rangeAtIndex:OAF_CRS_PATTERN_AUTHORITY_GROUP]];

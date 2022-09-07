@@ -21,7 +21,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_ID, OAF_TITLE, OAF_DESCRIPTION, OAF_LINKS, OAF_EXTENT, OAF_CRS, OAF_ITEM_TYPE, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_ID, OAF_TITLE, OAF_DESCRIPTION, OAF_LINKS, OAF_EXTENT, OAF_CRS, OAF_ITEM_TYPE, nil];
     }
 }
 
@@ -60,7 +60,7 @@ static NSOrderedSet *keys = nil;
     if(self.theDescription != nil){
         [tree setObject:self.theDescription forKey:OAF_DESCRIPTION];
     }
-    NSMutableArray *links = [[NSMutableArray alloc] init];
+    NSMutableArray *links = [NSMutableArray array];
     for(OAFLink *link in self.links){
         [links addObject:[link toTree]];
     }
@@ -87,7 +87,7 @@ static NSOrderedSet *keys = nil;
     self.theDescription = [tree objectForKey:OAF_DESCRIPTION];
     NSArray *linksArray = [tree objectForKey:OAF_LINKS];
     if(![linksArray isEqual:[NSNull null]] && linksArray != nil){
-        self.links = [[NSMutableArray alloc] init];
+        self.links = [NSMutableArray array];
         for(NSDictionary *linkTree in linksArray){
             [self.links addObject:[OAFFeaturesConverter treeToLink:linkTree]];
         }
@@ -100,7 +100,7 @@ static NSOrderedSet *keys = nil;
     [self setExtent:extent];
     NSArray *crs = [tree objectForKey:OAF_CRS];
     if(![crs isEqual:[NSNull null]] && crs != nil){
-        self.crs = [[NSMutableArray alloc] init];
+        self.crs = [NSMutableArray array];
         for(NSString *value in crs){
             [self.crs addObject:[NSMutableString stringWithString:value]];
         }

@@ -17,7 +17,7 @@ static NSOrderedSet *keys = nil;
 
 + (void)initialize {
     if(keys == nil){
-        keys = [[NSOrderedSet alloc] initWithObjects:OAF_BBOX, OAF_CRS, nil];
+        keys = [NSOrderedSet orderedSetWithObjects:OAF_BBOX, OAF_CRS, nil];
     }
 }
 
@@ -46,7 +46,7 @@ static NSOrderedSet *keys = nil;
     [super fromTree:tree];
     NSArray *boundingBox = [tree objectForKey:OAF_BBOX];
     if(![boundingBox isEqual:[NSNull null]] && boundingBox != nil){
-        self.bbox = [[NSMutableArray alloc] init];
+        self.bbox = [NSMutableArray array];
         for(NSNumber *number in boundingBox){
             [self.bbox addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
         }
