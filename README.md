@@ -52,7 +52,7 @@ Open ogc-api-features-json-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 12'
+    xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 14'
 
 ### Include Library ###
 
