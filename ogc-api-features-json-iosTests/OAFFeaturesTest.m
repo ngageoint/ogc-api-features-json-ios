@@ -8,7 +8,6 @@
 
 #import "OAFFeaturesTest.h"
 #import "OAFTestUtils.h"
-#import "SFGFeature.h"
 #import "SFGFeatureConverter.h"
 #import "OAFFeaturesConverter.h"
 #import "OAFCrs.h"

@@ -6,7 +6,6 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFFeaturesObject.h"
 #import "SFGFeatureCollection.h"
 #import "OAFLink.h"
 

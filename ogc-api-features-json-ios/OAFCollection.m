@@ -7,7 +7,6 @@
 //
 
 #import "OAFCollection.h"
-#import "OAFFeatureCollection.h"
 #import "OAFFeaturesConverter.h"
 
 NSString * const OAF_ID = @"id";

@@ -7,7 +7,6 @@
 //
 
 #import "OAFCollections.h"
-#import "OAFFeatureCollection.h"
 #import "OAFFeaturesConverter.h"
 
 NSString * const OAF_COLLECTIONS = @"collections";

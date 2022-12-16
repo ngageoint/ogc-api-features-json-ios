@@ -6,15 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "OAFFeaturesObject.h"
 #import "OAFCollections.h"
-#import "OAFCollection.h"
 #import "OAFFeatureCollection.h"
-#import "SFGeometry.h"
-#import "OAFSpatial.h"
-#import "OAFTemporal.h"
-#import "OAFExtent.h"
 
 /**
  * Features Converter
