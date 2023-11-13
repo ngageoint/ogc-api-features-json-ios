@@ -1,0 +1,20 @@
+
+Xcode Build:
+
+xcodebuild -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios build
+
+Xcode Test:
+
+xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+
+CocoaPods Local Lint:
+
+pod lib lint ogc-api-features-json-ios.podspec --use-libraries
+
+CocoaPods GitHub Release Lint:
+
+pod spec lint ogc-api-features-json-ios.podspec --use-libraries
+
+CocoaPods Deploy To Trunk:
+
+pod trunk push ogc-api-features-json-ios.podspec --use-libraries

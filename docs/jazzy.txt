@@ -3,8 +3,8 @@ jazzy \
   --author NGA \
   --author_url https://www.nga.mil \
   --github_url https://github.com/ngageoint/ogc-api-features-json-ios \
-  --github-file-prefix https://github.com/ngageoint/ogc-api-features-json-ios/tree/4.2.3 \
-  --module-version 4.2.3 \
+  --github-file-prefix https://github.com/ngageoint/ogc-api-features-json-ios/tree/4.2.4 \
+  --module-version 4.2.4 \
   --umbrella-header ogc-api-features-json-ios/ogc-api-features-json-ios-Bridging-Header.h \
   --framework-root . \
   --module ogc-api-features-json-ios \
