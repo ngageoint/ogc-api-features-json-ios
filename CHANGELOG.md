@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 4.2.5 (TBD)
+
+* TBD
+
 ## [4.2.4](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/4.2.4) (11-13-2023)
 
 * Module definition
