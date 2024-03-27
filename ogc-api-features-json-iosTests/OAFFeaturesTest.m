@@ -53,8 +53,8 @@
     content = [content stringByAppendingString:@"    \"id\" : \"flurstueck\",\n"];
     content = [content stringByAppendingString:@"    \"title\" : \"Flurstück\",\n"];
     content = [content stringByAppendingString:@"    \"extent\" : {\n"];
-    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"];
-    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"];
+    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"];
+    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"];
     content = [content stringByAppendingString:@"    },\n"];
     content = [content stringByAppendingString:@"    \"links\" : [ {\n"];
     content = [content stringByAppendingString:@"      \"rel\" : \"item\",\n"];
@@ -96,8 +96,8 @@
     content = [content stringByAppendingString:@"    \"id\" : \"gebaeudebauwerk\",\n"];
     content = [content stringByAppendingString:@"    \"title\" : \"Gebäude, Bauwerk\",\n"];
     content = [content stringByAppendingString:@"    \"extent\" : {\n"];
-    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"];
-    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"];
+    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"];
+    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"];
     content = [content stringByAppendingString:@"    },\n"];
     content = [content stringByAppendingString:@"    \"links\" : [ {\n"];
     content = [content stringByAppendingString:@"      \"rel\" : \"item\",\n"];
@@ -135,8 +135,8 @@
     content = [content stringByAppendingString:@"    \"id\" : \"verwaltungseinheit\",\n"];
     content = [content stringByAppendingString:@"    \"title\" : \"Verwaltungseinheit\",\n"];
     content = [content stringByAppendingString:@"    \"extent\" : {\n"];
-    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ] },\n"];
-    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ] }\n"];
+    content = [content stringByAppendingString:@"      \"spatial\" : { \"bbox\" : [[ 5.61272621360749, 50.2373512077239, 9.58963433710139, 52.5286304537795 ]] },\n"];
+    content = [content stringByAppendingString:@"      \"temporal\" : { \"interval\" : [[ \"2018-05-18T14:45:44Z\", \"2019-06-17T21:41:19Z\" ]] }\n"];
     content = [content stringByAppendingString:@"    },\n"];
     content = [content stringByAppendingString:@"    \"links\" : [ {\n"];
     content = [content stringByAppendingString:@"      \"rel\" : \"item\",\n"];
@@ -207,10 +207,12 @@
     [OAFTestUtils assertNotNil:collection.extent];
     [OAFTestUtils assertNotNil:collection.extent.spatial];
     [OAFTestUtils assertNotNil:collection.extent.spatial.bbox];
-    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)collection.extent.spatial.bbox.count];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[collection.extent.spatial bboxCount]];
+    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)[collection.extent.spatial firstBbox].count];
     [OAFTestUtils assertNotNil:collection.extent.temporal];
     [OAFTestUtils assertNotNil:collection.extent.temporal.interval];
-    [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)collection.extent.temporal.interval.count];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[collection.extent.temporal intervalCount]];
+    [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)[collection.extent.temporal firstInterval].count];
     [self validateLinks:collection.links withCount:6];
     [OAFTestUtils assertEqualIntWithValue:20 andValue2:(int)collection.crs.count];
 }
@@ -229,6 +231,110 @@
     [OAFTestUtils assertNotNil:link.href];
 }
 
+-(void) testCollections2{
+    
+    NSString *content = @"{\"links\": [";
+    content = [content stringByAppendingString:@"{ \"href\": \"http://data.example.org/collections.json\","];
+    content = [content stringByAppendingString:@"\"rel\": \"self\", \"type\": \"application/json\", \"title\": \"this document\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"http://data.example.org/collections.html\","];
+    content = [content stringByAppendingString:@"\"rel\": \"alternate\", \"type\": \"text/html\", \"title\": \"this document as HTML\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"http://schemas.example.org/1.0/buildings.xsd\","];
+    content = [content stringByAppendingString:@"\"rel\": \"describedby\", \"type\": \"application/xml\", \"title\": \"GML application schema for Acme Corporation building data\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"http://download.example.org/buildings.gpkg\","];
+    content = [content stringByAppendingString:@"\"rel\": \"enclosure\", \"type\": \"application/geopackage+sqlite3\", \"title\": \"Bulk download (GeoPackage)\", \"length\": 472546 }"];
+    content = [content stringByAppendingString:@"],\"collections\": [{\"id\": \"buildings\","];
+    content = [content stringByAppendingString:@"\"title\": \"Buildings\","];
+    content = [content stringByAppendingString:@"\"description\": \"Buildings in the city of Bonn.\","];
+    content = [content stringByAppendingString:@"\"extent\": {\"spatial\": {"];
+    content = [content stringByAppendingString:@"\"bbox\": [ [ 7.01, 50.63, 7.22, 50.78 ] ]},"];
+    content = [content stringByAppendingString:@"\"temporal\": {"];
+    content = [content stringByAppendingString:@"\"interval\": [ [ \"2010-02-15T12:34:56Z\", null ] ]}"];
+    content = [content stringByAppendingString:@"},\"itemType\": \"feature\",\"links\": ["];
+    content = [content stringByAppendingString:@"{ \"href\": \"http://data.example.org/collections/buildings\","];
+    content = [content stringByAppendingString:@"\"rel\": \"self\", \"title\": \"This collection\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"http://data.example.org/collections/buildings/items\","];
+    content = [content stringByAppendingString:@"\"rel\": \"items\", \"type\": \"application/geo+json\","];
+    content = [content stringByAppendingString:@"\"title\": \"Buildings\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"https://creativecommons.org/publicdomain/zero/1.0/\","];
+    content = [content stringByAppendingString:@"\"rel\": \"license\", \"type\": \"text/html\","];
+    content = [content stringByAppendingString:@"\"title\": \"CC0-1.0\" },"];
+    content = [content stringByAppendingString:@"{ \"href\": \"https://creativecommons.org/publicdomain/zero/1.0/rdf\","];
+    content = [content stringByAppendingString:@"\"rel\": \"license\", \"type\": \"application/rdf+xml\","];
+    content = [content stringByAppendingString:@"\"title\": \"CC0-1.0\" }]}]}"];
+    
+    OAFCollections *collections = [OAFFeaturesConverter jsonToCollections:content];
+    [self validateCollections2:collections];
+    
+    NSString *json = [OAFFeaturesConverter objectToJSON:collections];
+    [OAFTestUtils assertNotNil:json];
+    
+    OAFCollections *collections2 = [OAFFeaturesConverter jsonToCollections:json];
+    [self validateCollections2:collections2];
+    
+}
+
+-(void) validateCollections2: (OAFCollections *) collections{
+    
+    [OAFTestUtils assertNotNil:collections];
+    NSMutableArray<OAFLink *> *links = collections.links;
+    [OAFTestUtils assertNotNil:links];
+    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)links.count];
+    [OAFTestUtils assertEqualWithValue:@"http://data.example.org/collections.json" andValue2:[links objectAtIndex:0].href];
+    [OAFTestUtils assertEqualWithValue:@"self" andValue2:[links objectAtIndex:0].rel];
+    [OAFTestUtils assertEqualWithValue:@"application/json" andValue2:[links objectAtIndex:0].type];
+    [OAFTestUtils assertEqualWithValue:@"this document" andValue2:[links objectAtIndex:0].title];
+    [OAFTestUtils assertEqualWithValue:@"http://data.example.org/collections.html" andValue2:[links objectAtIndex:1].href];
+    [OAFTestUtils assertEqualWithValue:@"alternate" andValue2:[links objectAtIndex:1].rel];
+    [OAFTestUtils assertEqualWithValue:@"text/html" andValue2:[links objectAtIndex:1].type];
+    [OAFTestUtils assertEqualWithValue:@"this document as HTML" andValue2:[links objectAtIndex:1].title];
+    [OAFTestUtils assertEqualWithValue:@"http://schemas.example.org/1.0/buildings.xsd" andValue2:[links objectAtIndex:2].href];
+    [OAFTestUtils assertEqualWithValue:@"describedby" andValue2:[links objectAtIndex:2].rel];
+    [OAFTestUtils assertEqualWithValue:@"application/xml" andValue2:[links objectAtIndex:2].type];
+    [OAFTestUtils assertEqualWithValue:@"GML application schema for Acme Corporation building data" andValue2:[links objectAtIndex:2].title];
+    [OAFTestUtils assertEqualWithValue:@"http://download.example.org/buildings.gpkg" andValue2:[links objectAtIndex:3].href];
+    [OAFTestUtils assertEqualWithValue:@"enclosure" andValue2:[links objectAtIndex:3].rel];
+    [OAFTestUtils assertEqualWithValue:@"application/geopackage+sqlite3" andValue2:[links objectAtIndex:3].type];
+    [OAFTestUtils assertEqualWithValue:@"Bulk download (GeoPackage)" andValue2:[links objectAtIndex:3].title];
+    [OAFTestUtils assertEqualIntWithValue:472546 andValue2:[[links objectAtIndex:3].length intValue]];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:(int)collections.collections.count];
+    OAFCollection *collection = [collections.collections firstObject];
+    [OAFTestUtils assertEqualWithValue:@"buildings" andValue2:collection.id];
+    [OAFTestUtils assertEqualWithValue:@"Buildings" andValue2:collection.title];
+    [OAFTestUtils assertEqualWithValue:@"Buildings in the city of Bonn." andValue2:collection.theDescription];
+    OAFExtent *extent = collection.extent;
+    [OAFTestUtils assertNotNil:extent];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[extent.spatial bboxCount]];
+    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)[extent.spatial firstBbox].count];
+    [OAFTestUtils assertEqualDoubleWithValue:7.01 andValue2:[[[extent.spatial firstBbox] objectAtIndex:0] doubleValue]];
+    [OAFTestUtils assertEqualDoubleWithValue:50.63 andValue2:[[[extent.spatial firstBbox] objectAtIndex:1] doubleValue]];
+    [OAFTestUtils assertEqualDoubleWithValue:7.22 andValue2:[[[extent.spatial firstBbox] objectAtIndex:2] doubleValue] andDelta:0.000000000000001];
+    [OAFTestUtils assertEqualDoubleWithValue:50.78 andValue2:[[[extent.spatial firstBbox] objectAtIndex:3] doubleValue]];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[extent.temporal intervalCount]];
+    [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)[extent.temporal firstInterval].count];
+    [OAFTestUtils assertEqualWithValue:@"2010-02-15T12:34:56Z" andValue2:[[extent.temporal firstInterval] objectAtIndex:0]];
+    [OAFTestUtils assertEqualWithValue:[NSNull null] andValue2:[[extent.temporal firstInterval] objectAtIndex:1]];
+    [OAFTestUtils assertEqualWithValue:@"feature" andValue2:collection.itemType];
+    NSMutableArray<OAFLink *> *collectionLinks = collection.links;
+    [OAFTestUtils assertNotNil:collectionLinks];
+    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)collectionLinks.count];
+    [OAFTestUtils assertEqualWithValue:@"http://data.example.org/collections/buildings" andValue2:[collectionLinks objectAtIndex:0].href];
+    [OAFTestUtils assertEqualWithValue:@"self" andValue2:[collectionLinks objectAtIndex:0].rel];
+    [OAFTestUtils assertEqualWithValue:@"This collection" andValue2:[collectionLinks objectAtIndex:0].title];
+    [OAFTestUtils assertEqualWithValue:@"http://data.example.org/collections/buildings/items" andValue2:[collectionLinks objectAtIndex:1].href];
+    [OAFTestUtils assertEqualWithValue:@"items" andValue2:[collectionLinks objectAtIndex:1].rel];
+    [OAFTestUtils assertEqualWithValue:@"application/geo+json" andValue2:[collectionLinks objectAtIndex:1].type];
+    [OAFTestUtils assertEqualWithValue:@"Buildings" andValue2:[collectionLinks objectAtIndex:1].title];
+    [OAFTestUtils assertEqualWithValue:@"https://creativecommons.org/publicdomain/zero/1.0/" andValue2:[collectionLinks objectAtIndex:2].href];
+    [OAFTestUtils assertEqualWithValue:@"license" andValue2:[collectionLinks objectAtIndex:2].rel];
+    [OAFTestUtils assertEqualWithValue:@"text/html" andValue2:[collectionLinks objectAtIndex:2].type];
+    [OAFTestUtils assertEqualWithValue:@"CC0-1.0" andValue2:[collectionLinks objectAtIndex:2].title];
+    [OAFTestUtils assertEqualWithValue:@"https://creativecommons.org/publicdomain/zero/1.0/rdf" andValue2:[collectionLinks objectAtIndex:3].href];
+    [OAFTestUtils assertEqualWithValue:@"license" andValue2:[collectionLinks objectAtIndex:3].rel];
+    [OAFTestUtils assertEqualWithValue:@"application/rdf+xml" andValue2:[collectionLinks objectAtIndex:3].type];
+    [OAFTestUtils assertEqualWithValue:@"CC0-1.0" andValue2:[collectionLinks objectAtIndex:3].title];
+    
+}
+
 -(void) testCollection{
     
     NSString *content = @"{\n";
@@ -236,8 +342,8 @@
     content = [content stringByAppendingString:@"  \"title\": \"Buildings\",\n"];
     content = [content stringByAppendingString:@"  \"description\": \"Buildings in the city of Bonn.\",\n"];
     content = [content stringByAppendingString:@"  \"extent\": {\n"];
-    content = [content stringByAppendingString:@"  \"spatial\": { \"bbox\" : [ 7.01, 50.63, 7.22, 50.78 ] },\n"];
-    content = [content stringByAppendingString:@"  \"temporal\": { \"interval\" : [ \"2010-02-15T12:34:56Z\", \"2018-03-18T12:11:00Z\" ] }\n"];
+    content = [content stringByAppendingString:@"  \"spatial\": { \"bbox\" : [[ 7.01, 50.63, 7.22, 50.78 ]] },\n"];
+    content = [content stringByAppendingString:@"  \"temporal\": { \"interval\" : [[ \"2010-02-15T12:34:56Z\", \"2018-03-18T12:11:00Z\" ]] }\n"];
     content = [content stringByAppendingString:@"  },\n"];
     content = [content stringByAppendingString:@"  \"links\": [\n"];
     content = [content stringByAppendingString:@"  { \"href\": \"http://data.example.org/collections/buildings/items\",\n"];
@@ -266,14 +372,16 @@
     [OAFTestUtils assertEqualWithValue:@"Buildings in the city of Bonn." andValue2:collection.theDescription];
     OAFExtent *extent = collection.extent;
     [OAFTestUtils assertNotNil:extent];
-    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)extent.spatial.bbox.count];
-    [OAFTestUtils assertEqualDoubleWithValue:7.01 andValue2:[[extent.spatial.bbox objectAtIndex:0] doubleValue]];
-    [OAFTestUtils assertEqualDoubleWithValue:50.63 andValue2:[[extent.spatial.bbox objectAtIndex:1] doubleValue]];
-    [OAFTestUtils assertEqualDoubleWithValue:7.22 andValue2:[[extent.spatial.bbox objectAtIndex:2] doubleValue] andDelta:0.000000000000001];
-    [OAFTestUtils assertEqualDoubleWithValue:50.78 andValue2:[[extent.spatial.bbox objectAtIndex:3] doubleValue]];
-    [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)extent.temporal.interval.count];
-    [OAFTestUtils assertEqualWithValue:@"2010-02-15T12:34:56Z" andValue2:[extent.temporal.interval objectAtIndex:0]];
-    [OAFTestUtils assertEqualWithValue:@"2018-03-18T12:11:00Z" andValue2:[extent.temporal.interval objectAtIndex:1]];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[extent.spatial bboxCount]];
+    [OAFTestUtils assertEqualIntWithValue:4 andValue2:(int)[extent.spatial firstBbox].count];
+    [OAFTestUtils assertEqualDoubleWithValue:7.01 andValue2:[[[extent.spatial firstBbox] objectAtIndex:0] doubleValue]];
+    [OAFTestUtils assertEqualDoubleWithValue:50.63 andValue2:[[[extent.spatial firstBbox] objectAtIndex:1] doubleValue]];
+    [OAFTestUtils assertEqualDoubleWithValue:7.22 andValue2:[[[extent.spatial firstBbox] objectAtIndex:2] doubleValue] andDelta:0.000000000000001];
+    [OAFTestUtils assertEqualDoubleWithValue:50.78 andValue2:[[[extent.spatial firstBbox] objectAtIndex:3] doubleValue]];
+    [OAFTestUtils assertEqualIntWithValue:1 andValue2:[extent.temporal intervalCount]];
+    [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)[extent.temporal firstInterval].count];
+    [OAFTestUtils assertEqualWithValue:@"2010-02-15T12:34:56Z" andValue2:[[extent.temporal firstInterval] objectAtIndex:0]];
+    [OAFTestUtils assertEqualWithValue:@"2018-03-18T12:11:00Z" andValue2:[[extent.temporal firstInterval] objectAtIndex:1]];
     NSMutableArray<OAFLink *> *links = collection.links;
     [OAFTestUtils assertNotNil:links];
     [OAFTestUtils assertEqualIntWithValue:2 andValue2:(int)links.count];

@@ -6,6 +6,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 4.2.5 (TBD)
 
+* Temporal interval fixed to be an array of intervals
+* Spatial bbox fixed to be an array of bounding boxes
+* Collection itemType write to JSON fix
 * sf-geojson-ios 4.2.5
 
 ## [4.2.4](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/4.2.4) (11-13-2023)

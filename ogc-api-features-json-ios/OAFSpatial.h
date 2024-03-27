@@ -24,11 +24,12 @@ extern NSString * const OAF_CRS;
 @interface OAFSpatial : OAFFeaturesObject
 
 /**
- * West, south, east, north edges of the bounding box. The coordinates are
- * in the coordinate reference system specified in `crs`. By default this is
- * WGS 84 longitude/latitude.
+ * One or more bounding boxes that describe the spatial extent of the
+ * dataset. In the Core only a single bounding box is supported. Extensions
+ * may support additional areas. If multiple areas are provided, the union
+ * of the bounding boxes describes the spatial extent.
  */
-@property (nonatomic, strong) NSMutableArray<NSDecimalNumber *> *bbox;
+@property (nonatomic, strong) NSMutableArray<NSMutableArray<NSDecimalNumber *>*> *bbox;
 
 /**
  * Coordinate reference system of the coordinates in the spatial extent
@@ -54,5 +55,36 @@ extern NSString * const OAF_CRS;
  *  @return new spatial
  */
 -(instancetype) initWithTree: (NSDictionary *) tree;
+
+/**
+ * Get the bounding box collection count
+ *
+ * @return count
+ */
+-(int) bboxCount;
+
+/**
+ * Get the first bounding box
+ *
+ * @return bounding box
+ */
+-(NSMutableArray<NSDecimalNumber *> *) firstBbox;
+
+/**
+ * Get the bounding box at the index
+ *
+ * @param index
+ *            0 based index
+ * @return bounding box
+ */
+-(NSMutableArray<NSDecimalNumber *> *) bboxAtIndex: (int) index;
+
+/**
+ * Add a bounding box
+ *
+ * @param bbox
+ *            single bounding box
+ */
+-(void) addBbox: (NSMutableArray<NSDecimalNumber *> *) bbox;
 
 @end

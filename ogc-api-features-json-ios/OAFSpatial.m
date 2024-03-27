@@ -31,6 +31,25 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
+-(int) bboxCount{
+    return _bbox != nil ? (int) _bbox.count : 0;
+}
+
+-(NSMutableArray<NSDecimalNumber *> *) firstBbox{
+    return [self bboxAtIndex:0];
+}
+
+-(NSMutableArray<NSDecimalNumber *> *) bboxAtIndex: (int) index{
+    return [_bbox objectAtIndex:index];
+}
+
+-(void) addBbox: (NSMutableArray<NSDecimalNumber *> *) bbox{
+    if(_bbox == nil){
+        _bbox = [NSMutableArray array];
+    }
+    [_bbox addObject:bbox];
+}
+
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
     if(self.bbox != nil){
@@ -47,8 +66,12 @@ static NSOrderedSet *keys = nil;
     NSArray *boundingBox = [tree objectForKey:OAF_BBOX];
     if(![boundingBox isEqual:[NSNull null]] && boundingBox != nil){
         self.bbox = [NSMutableArray array];
-        for(NSNumber *number in boundingBox){
-            [self.bbox addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
+        for(NSArray<NSNumber *> *boundingBoxItem in boundingBox){
+            NSMutableArray<NSDecimalNumber *> *bboxItem = [NSMutableArray array];
+            for(NSNumber *number in boundingBoxItem){
+                [bboxItem addObject:[[NSDecimalNumber alloc] initWithDouble:[number doubleValue]]];
+            }
+            [self addBbox:bboxItem];
         }
     }
     self.crs = [tree objectForKey:OAF_CRS];

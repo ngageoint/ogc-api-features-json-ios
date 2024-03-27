@@ -71,7 +71,7 @@ static NSOrderedSet *keys = nil;
         [tree setObject:self.crs forKey:OAF_CRS];
     }
     if(self.itemType != nil){
-        [tree setObject:self.theDescription forKey:OAF_ITEM_TYPE];
+        [tree setObject:self.itemType forKey:OAF_ITEM_TYPE];
     }
     return tree;
 }

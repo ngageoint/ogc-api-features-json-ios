@@ -31,6 +31,25 @@ static NSOrderedSet *keys = nil;
     return self;
 }
 
+-(int) intervalCount{
+    return _interval != nil ? (int) _interval.count : 0;
+}
+
+-(NSMutableArray<NSString *> *) firstInterval{
+    return [self intervalAtIndex:0];
+}
+
+-(NSMutableArray<NSString *> *) intervalAtIndex: (int) index{
+    return [_interval objectAtIndex:index];
+}
+
+-(void) addInterval: (NSMutableArray<NSString *> *) interval{
+    if(_interval == nil){
+        _interval = [NSMutableArray array];
+    }
+    [_interval addObject:interval];
+}
+
 -(NSMutableDictionary *) toTree{
     NSMutableDictionary *tree = [super toTree];
     if(self.interval != nil){
@@ -47,8 +66,8 @@ static NSOrderedSet *keys = nil;
     NSArray *interval = [tree objectForKey:OAF_INTERVAL];
     if(![interval isEqual:[NSNull null]] && interval != nil){
         self.interval = [NSMutableArray array];
-        for(NSString *value in interval){
-            [self.interval addObject:[NSMutableString stringWithString:value]];
+        for(NSArray<NSString *> *intervalItem in interval){
+            [self addInterval:[NSMutableArray arrayWithArray:intervalItem]];
         }
     }
     self.trs = [tree objectForKey:OAF_TRS];
