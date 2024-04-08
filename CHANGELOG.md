@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.2.5 (TBD)
+## [4.2.5](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/4.2.5) (04-08-2024)
 
 * Temporal interval fixed to be an array of intervals
 * Spatial bbox fixed to be an array of bounding boxes
