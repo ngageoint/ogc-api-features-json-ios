@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFExtent.h"
-#import "OAFFeaturesConverter.h"
+#import <OGC_APIFeaturesJSON/OAFExtent.h>
+#import <OGC_APIFeaturesJSON/OAFFeaturesConverter.h>
 
 NSString * const OAF_SPATIAL = @"spatial";
 NSString * const OAF_TEMPORAL = @"temporal";

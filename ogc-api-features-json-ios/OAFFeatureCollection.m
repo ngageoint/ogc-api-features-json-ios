@@ -6,9 +6,10 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFFeatureCollection.h"
-#import "OAFFeaturesConverter.h"
-#import "SFGFeatureConverter.h"
+#import <OGC_APIFeaturesJSON/OAFFeatureCollection.h>
+#import <OGC_APIFeaturesJSON/OAFFeaturesConverter.h>
+
+@import SimpleFeaturesGeoJSON;
 
 NSString * const OAF_LINKS = @"links";
 NSString * const OAF_TIME_STAMP = @"timeStamp";

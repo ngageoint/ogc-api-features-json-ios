@@ -20,7 +20,8 @@ View the latest [Appledoc](http://ngageoint.github.io/ogc-api-features-json-ios/
 #### Read ####
 
 ```objectivec
-
+@import OGC_APIFeaturesJSON;
+ 
 OAFCollections *collections = [OAFFeaturesConverter jsonToCollections:collectionsContent];
 OAFCollection *collection = [OAFFeaturesConverter jsonToCollection:collectionContent];
 OAFFeatureCollection *featureCollection = [OAFFeaturesConverter jsonToFeatureCollection:featureCollectionContent];
@@ -39,43 +40,48 @@ NSString *featureCollectionContent = [OAFFeaturesConverter objectToJSON:featureC
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/ogc-api-features-json-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/ogc-api-features-json-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/ogc-api-features-json-ios/workflows/Build/badge.svg)](https://github.com/ngageoint/ogc-api-features-json-ios/actions/workflows/build.yml)
 
-Build this repository using Xcode and/or CocoaPods:
+Build this repository using Swift Package Manager:
 
-    pod repo update
-    pod install
-
-Open ogc-api-features-json-ios.xcworkspace in Xcode or build from command line:
-
-    xcodebuild -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios build
+    swift build
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'ogc-api-features-json-ios.xcworkspace' -scheme ogc-api-features-json-ios -destination 'platform=iOS Simulator,name=iPhone 15'
+    swift test
+
+Open the Swift Package in Xcode from command line:
+
+    open Package.swift
 
 ### Include Library ###
 
-Include this repository by specifying it in a Podfile using a supported option.
+Use this library via SPM in your Package.swift:
 
-Pull from [CocoaPods](https://cocoapods.org/pods/ogc-api-features-json-ios):
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/ogc-api-features-json-ios.git", branch: "release/5.0.0"),
+    ]
+    
+Or as a tagged release:
 
-    pod 'ogc-api-features-json-ios', '~> 4.2.5'
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/ogc-api-features-json-ios.git", from: "5.0.0"),
+    ]
 
-Pull from GitHub:
+Reference it in your Package.swift target:
 
-    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :branch => 'master'
-    pod 'ogc-api-features-json-ios', :git => 'https://github.com/ngageoint/ogc-api-features-json-ios.git', :tag => '4.2.5'
-
-Include as local project:
-
-    pod 'ogc-api-features-json-ios', :path => '../ogc-api-features-json-ios'
+    .target(
+        name: "MyApp",
+        dependencies: [
+            .product(name: "OGC_APIFeaturesJSON", package: "ogc-api-features-json-ios"),
+        ],
+    ),
 
 ### Swift ###
 
-To use from Swift, import the ogc-api-features-json-ios bridging header from the Swift project's bridging header
+To use from Swift:
 
-    #import "ogc-api-features-json-ios-Bridging-Header.h"
+    import OGC_APIFeaturesJSON
 
 ### Remote Dependencies ###
 

@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFLink.h"
-#import "OAFExtent.h"
+#import <OGC_APIFeaturesJSON/OAFLink.h>
+#import <OGC_APIFeaturesJSON/OAFExtent.h>
 
 /**
  * id property name

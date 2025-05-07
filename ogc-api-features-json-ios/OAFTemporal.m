@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFTemporal.h"
+#import <OGC_APIFeaturesJSON/OAFTemporal.h>
 
 NSString * const OAF_INTERVAL = @"interval";
 NSString * const OAF_TRS = @"trs";

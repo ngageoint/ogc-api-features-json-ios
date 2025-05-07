@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFLink.h"
+#import <OGC_APIFeaturesJSON/OAFLink.h>
 
 NSString * const OAF_HREF = @"href";
 NSString * const OAF_REL = @"rel";

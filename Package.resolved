@@ -1,0 +1,24 @@
+{
+  "originHash" : "ebc746aa15d890c3dcf73cd44db7e19ec41c9b7c081c5c0e3905ad3620b46627",
+  "pins" : [
+    {
+      "identity" : "simple-features-geojson-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ngageoint/simple-features-geojson-ios",
+      "state" : {
+        "revision" : "fec8acaee9b793e402c3e4a7660883b9259a1c75",
+        "version" : "5.0.0"
+      }
+    },
+    {
+      "identity" : "simple-features-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ngageoint/simple-features-ios",
+      "state" : {
+        "revision" : "615127133c83122077dcf71daa53a9a93f05a347",
+        "version" : "5.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

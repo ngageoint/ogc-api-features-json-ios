@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFCrs.h"
+#import <OGC_APIFeaturesJSON/OAFCrs.h>
 
 NSString *const OAF_CRS_PATTERN = @"http.+/([^/]+)/([^/]+)/([^/]+)$";
 int const OAF_CRS_PATTERN_AUTHORITY_GROUP = 1;

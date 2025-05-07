@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFFeaturesConverter.h"
-#import "SFGFeatureConverter.h"
+#import <OGC_APIFeaturesJSON/OAFFeaturesConverter.h>
+#import <SimpleFeaturesGeoJSON/SimpleFeaturesGeoJSON.h>
 
 @implementation OAFFeaturesConverter
 

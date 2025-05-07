@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFSpatial.h"
+#import <OGC_APIFeaturesJSON/OAFSpatial.h>
 
 NSString * const OAF_BBOX = @"bbox";
 NSString * const OAF_CRS = @"crs";
