@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFCollection.h"
+#import <OGC_APIFeaturesJSON/OAFCollection.h>
 
 /**
  * collections property name

@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFFeaturesObject.h"
-#import "SFGOrderedDictionary.h"
+#import <OGC_APIFeaturesJSON/OAFFeaturesObject.h>
+@import SimpleFeaturesGeoJSON;
 
 @implementation OAFFeaturesObject
 

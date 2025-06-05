@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFCollections.h"
-#import "OAFFeatureCollection.h"
+#import <OGC_APIFeaturesJSON/OAFCollections.h>
+#import <OGC_APIFeaturesJSON/OAFFeatureCollection.h>
 
 /**
  * Features Converter

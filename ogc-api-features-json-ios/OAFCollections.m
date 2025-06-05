@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFCollections.h"
-#import "OAFFeaturesConverter.h"
+#import <OGC_APIFeaturesJSON/OAFCollections.h>
+#import <OGC_APIFeaturesJSON/OAFFeaturesConverter.h>
 
 NSString * const OAF_COLLECTIONS = @"collections";
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFFeaturesObject.h"
+#import <OGC_APIFeaturesJSON/OAFFeaturesObject.h>
 
 /**
  * href property name

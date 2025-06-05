@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFSpatial.h"
-#import "OAFTemporal.h"
+#import <OGC_APIFeaturesJSON/OAFSpatial.h>
+#import <OGC_APIFeaturesJSON/OAFTemporal.h>
 
 /**
  * spatial property name

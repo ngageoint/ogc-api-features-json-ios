@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "SFGFeatureCollection.h"
-#import "OAFLink.h"
+#import <SimpleFeaturesGeoJSON/SimpleFeaturesGeoJSON.h>
+#import <OGC_APIFeaturesJSON/OAFLink.h>
 
 /**
  * Links property name

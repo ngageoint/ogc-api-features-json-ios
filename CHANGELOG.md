@@ -4,9 +4,11 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 4.2.6 (TBD)
+## 5.0.0 (6-5-2025)
 
-* TBD
+* Adds Swift Package Manager (SPM) support and removes Cocoapods
+* Integrated sf-geojson-ios 5.0.0 (Breaking NS_ENUM Objective-C/Swift Interoperability fixes)
+
 
 ## [4.2.5](https://github.com/ngageoint/ogc-api-features-json-ios/releases/tag/4.2.5) (04-08-2024)
 

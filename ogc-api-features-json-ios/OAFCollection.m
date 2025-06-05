@@ -6,8 +6,8 @@
 //  Copyright © 2019 NGA. All rights reserved.
 //
 
-#import "OAFCollection.h"
-#import "OAFFeaturesConverter.h"
+#import <OGC_APIFeaturesJSON/OAFCollection.h>
+#import <OGC_APIFeaturesJSON/OAFFeaturesConverter.h>
 
 NSString * const OAF_ID = @"id";
 NSString * const OAF_DESCRIPTION = @"description";

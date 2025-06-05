@@ -8,9 +8,9 @@
 
 #import "OAFFeaturesTest.h"
 #import "OAFTestUtils.h"
-#import "SFGFeatureConverter.h"
-#import "OAFFeaturesConverter.h"
-#import "OAFCrs.h"
+@import SimpleFeatures;
+@import SimpleFeaturesGeoJSON;
+@import OGC_APIFeaturesJSON;
 
 @implementation OAFFeaturesTest
 
